@@ -19,7 +19,7 @@ public class 일곱난쟁이_2309 {
 		out :
 		for(int i=0; i<8;i++) {
 			for(int j=i+1;j<9;j++) {
-				if(total - small[i]-small[j] == 100) {
+				if(total - small[i]-small[j] == 100) { //9난쟁이 모두 던한 수에서 2명 난쟁이를 뻈을때 100이 되는 경우를 찾음
 					x=i;y=j;
 					break out;
 				}
@@ -27,6 +27,7 @@ public class 일곱난쟁이_2309 {
 		}
 		
 		List<Integer> temp = new ArrayList();
+		
 		for(int i=0;i<9;i++) {
 			if(i==x || i==y) {
 				continue;
