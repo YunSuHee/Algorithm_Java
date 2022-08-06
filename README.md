@@ -31,7 +31,7 @@
 
 ```
 
-###ArrayList
+### ArrayList
 
 **정렬하기**
 - Collections.sort(list) // 오름차순
@@ -39,7 +39,7 @@
 - list.sort(Comparator.naturalOrder()) //오름차순
 - list.sort(Comparator.reverseOrder()) //내림차순
 
-###특정값 포함되어 있는지 확인(Contains)
+### 특정값 포함되어 있는지 확인(Contains)
 ```
 Arrays.asList(배열).contains(값)
 ```
