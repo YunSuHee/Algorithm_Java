@@ -39,6 +39,9 @@
 - list.sort(Comparator.naturalOrder()) //오름차순
 - list.sort(Comparator.reverseOrder()) //내림차순
 
+**list 내부 다 지우기**
+- ArrayList.clear()
+
 ### 특정값 포함되어 있는지 확인(Contains)
 ```
 Arrays.asList(배열).contains(값)
