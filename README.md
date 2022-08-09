@@ -42,8 +42,28 @@
 **list 내부 다 지우기**
 - ArrayList.clear()
 
+**list 값 변경**
+
+```
+ArrayList<Integer> a = new ArrayList();
+a.set(index위치, 변경할 값)
+
+```
+
+
+
 ### 특정값 포함되어 있는지 확인(Contains)
 ```
 Arrays.asList(배열).contains(값)
 ```
 반환 값 true / false
+
+### Array
+
+**정렬하기**
+
+```
+Arrays.sort(arr); //오름차순
+Arrays.sort(arr,Collections.reverseOrder()); //내림차순
+```
+
