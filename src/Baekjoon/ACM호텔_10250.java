@@ -14,8 +14,8 @@ public class ACM호텔_10250 {
 			int N = sc.nextInt(); //명수
 			int temp =1;
 			// 1 호부터  층별로 배당
-			out: for(int i=1; i<=W;i++) {
-				for(int j=1;j<=H; j++) {
+			out: for(int i=1; i<=W;i++) { // 1호부터
+				for(int j=1;j<=H; j++) {	// 1- H층 까지 계산
 					if(N == temp) {
 						System.out.print(j);
 						System.out.println(i<10 ? "0"+i : i); 
