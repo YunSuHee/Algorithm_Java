@@ -1,14 +1,22 @@
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
 public class Main {
+	
 	static Queue<Integer> queue = new LinkedList<>();
 	static ArrayList<Integer> rotate = new ArrayList<>();
 
 	public static void main(String[] args) {
+		
+		//요약
+		// 1. 최종 달팽이 모양으로 출력 될 값 순서를 queue에 넣는 작업
+		// 2. queue 값을 출력해서 달팽이 모양 순서대로  result 2차원 배열에 넣기
+		// 3. result 배열 출력하기
+		
+		
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int m = sc.nextInt();
@@ -16,6 +24,7 @@ public class Main {
 
 		int[][] arr = new int[n][m];
 
+		// 값 넣기
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				arr[i][j] = sc.nextInt();
@@ -32,15 +41,17 @@ public class Main {
 
 		int x = 0;
 		int y = 0;
-//		Queue<Integer> queue = new LinkedList<>();
-//		ArrayList<Integer> rotate = new ArrayList<>();
-		int[][] temp = new int[n][m];
 
+		int[][] temp = new int[n][m];
+		
+		
+		// 1. 최종 달팽이 모양으로 출력 될 값 순서를 queue에 넣는 작업
 		for (int j = 0; j < n * m; j++) {
 
-			// temp 의 역할은 회전 시킬 값을 찾는 용 rotate는 실질적으로 회전할 배열
+			// temp 의 역할은 회전 시킬 값을 찾는 용  rotate는 실질적으로 회전할 배열
 			temp[x][y] = arr[x][y]; // 현재 값 넣기 //
 			rotate.add(arr[x][y]); // 회전 할 값 배열에 저장
+			
 			// 다음 값 넣기
 			int nx = x + dx[dir];
 			int ny = y + dy[dir];
@@ -52,7 +63,7 @@ public class Main {
 
 			}
 
-			if (temp[nx][ny] == 0) { // 다음 값에 들어 갈 수 있으면
+			if (temp[nx][ny] == 0) { // 다음 값에 들어 갈 수 있으면 
 				// x,y 값 바꿔줘
 				x += dx[dir];
 				y += dy[dir];
@@ -70,8 +81,6 @@ public class Main {
 				x += dx[dir];
 				y += dy[dir];
 
-//				System.out.println("temp" + Arrays.deepToString(temp));
-
 			}
 
 		}
@@ -79,7 +88,7 @@ public class Main {
 			rotateArr(r);
 		}
 
-		// queue 값을 출력해서 달팽이 모양으로 result 2차원 배열에 넣기
+		// 2. queue 값을 출력해서 달팽이 모양 순서대로  result 2차원 배열에 넣기
 		int[][] result = new int[n][m];
 		x = 0;
 		y = 0;
@@ -99,7 +108,7 @@ public class Main {
 
 		}
 
-		// result 배열 출력하기
+		// 3.  result 배열 출력하기
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				System.out.print(result[i][j] + " ");
@@ -110,16 +119,16 @@ public class Main {
 	}
 
 	static void rotateArr(int r) {
-//		System.out.println("new_rotate" + rotate);
+
 		for (int k = 0; k < r; k++) {
 			int first = rotate.remove(0); // 처음값 제거
 			rotate.add(rotate.size(), first); // 마지막에 추가
-//			System.out.println("rotate" + rotate);
+
 		}
 		for (int i = 0; i < rotate.size(); i++) {
 			queue.add(rotate.get(i));
 		}
-//		System.out.println(queue);
+
 		rotate.clear(); // arraylist 초기화 해주기
 	}
 }
