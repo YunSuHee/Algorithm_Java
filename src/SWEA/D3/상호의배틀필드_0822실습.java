@@ -41,6 +41,6 @@ public class 상호의배틀필드_0822실습 {
 
 	}
 	
-	static 
+//	static 
 
 }
