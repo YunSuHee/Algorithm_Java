@@ -4,13 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class 집합_11723 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		Scanner sc = new Scanner(System.in);
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int line = Integer.parseInt(br.readLine());
 		int[] agg = new int[21]; // x가 1부터 20까지
@@ -18,11 +17,10 @@ public class 집합_11723 {
 		for (int i = 0; i < line; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			String input = st.nextToken();
-			int n=0;
-			if(st.hasMoreTokens()) {
+			int n = 0;
+			if (st.hasMoreTokens()) {
 				n = Integer.parseInt(st.nextToken());
 			}
-
 
 			switch (input) {
 			case "add":
