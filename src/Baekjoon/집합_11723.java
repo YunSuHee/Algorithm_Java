@@ -17,7 +17,7 @@ public class 집합_11723 {
 		for (int i = 0; i < line; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			String input = st.nextToken();
-			int n = 0;
+			int n = 0; 
 			if (st.hasMoreTokens()) {
 				n = Integer.parseInt(st.nextToken());
 			}
