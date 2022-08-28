@@ -19,6 +19,8 @@ public class Solution {
 					if (i > result) {
 						add += i - result;
 						result += i - result;
+						// add는 값이 누적이니까 result에 add 더하면 안됨
+
 					}
 
 					result += person;
