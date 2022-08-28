@@ -18,7 +18,9 @@ public class Main {
 //		
 		int[] dx = { -1, -1, -1, 0, 0, 1, 1, 1 };
 		int[] dy = { -1, 0, 1, -1, 1, -1, 0, 1 };
-
+		//사방 탐색이 안되는 경우  ......XXXX 이런 경우 떄문에.. 내가 처음이 x 일떄 if문을 쓰는거여서,,, 처음이 .일수도... 와우
+		
+		
 		int countX = 1;
 		int countDot = 0;
 		boolean goo = false; // 구사가과 이길경우
