@@ -19,7 +19,7 @@ public class 도형만들기 {
 			}
 		}else if("A".equals(input)) {
 			for(int i=0;i<5;i++) {
-				for()
+				
 			}
 		}
 

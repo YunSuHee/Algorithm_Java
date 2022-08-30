@@ -1,5 +1,6 @@
 package SWEA.D3;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class 정곤이의단조증가하는수 {
@@ -19,9 +20,15 @@ public class 정곤이의단조증가하는수 {
 				int input = sc.nextInt();
 				arr[j] = input;
 			}
+			ArrayList<Integer> danjo = new ArrayList<>();
+			for (int j = 0; j < arr.length - 1; j++) {
+				for (int k = j + 1; k < arr.length; k++) {
+					danjo.add(arr[j] * arr[k]);
+				}
+			}
 
-			for (int k = 0; k < N - 1; k++) {
-				String check = arr[k] * arr[k + 1] + "";
+			for (int k = 0; k < danjo.size(); k++) {
+				String check = danjo.get(k) + "";
 				// 단조 증가인지 비교
 				boolean num = true;
 				for (int c = 0; c < check.length() - 1; c++) {
@@ -31,11 +38,12 @@ public class 정곤이의단조증가하는수 {
 					}
 				}
 				if (num) {
-					max = Math.max(max, Integer.parseInt(check));
+					max = Math.max(max, danjo.get(k));
 				}
 
 			}
-			System.out.printf("#%d %d\n", T, max);
+			
+			System.out.printf("#%d %d\n", i, max);
 		}
 
 	}
