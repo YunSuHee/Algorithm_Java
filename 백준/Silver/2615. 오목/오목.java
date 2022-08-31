@@ -4,9 +4,9 @@ public class Main {
 
 	static int[][] omog = new int[19][19];
 
-	// 북동, 우, 남동, 하
-	static int[] dx = { -1, 0, 1, 1 };
-	static int[] dy = { 1, 1, 1, 0 };
+	// 상 , 하, 좌, 우, 남동, 남서, 북서, 북동  // 남서(1,-1) 방향은 없어 왜냐면 왼쪽 부터 출력이니까
+	static int[] dx = { -1, 1, 0, 0, 1,  -1, -1 };
+	static int[] dy = { 0, 0, -1, 1, 1,  -1, 1 };
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -22,7 +22,7 @@ public class Main {
 			for (int j = 0; j < 19; j++) {
 				if (omog[i][j] != 0) { // 오목이 있을 때
 					// 팔방 탐색
-					for (int k = 0; k < 4; k++) {
+					for (int k = 0; k < 7; k++) {
 						int nx = i + dx[k];
 						int ny = j + dy[k];
 						if (nx >= 0 && ny >= 0 && nx < 19 && ny < 19 && omog[nx][ny] == omog[i][j]) { 
