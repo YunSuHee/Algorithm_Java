@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -54,8 +53,6 @@ public class Main {
 	static void combination(int[] combArr, boolean[] visited, int depth, int r, int finalR) {
 		if (r == 0) {
 			result(combArr, visited, finalR); // r은 계속 하나씩 줄어드니까 finalR
-//            print(combArr, visited);
-
 			return;
 		}
 
@@ -71,7 +68,7 @@ public class Main {
 
 	}
 
-	static void result(int[] comArr, boolean[] visited, int r) {
+	static void result(int[] comArr, boolean[] visited, int r) { //조합마다 min 값 찾아서 update
 		int[] finalChiken = new int[r];
 		int index = 0;
 		for (int i = 0; i < comArr.length; i++) {
@@ -88,15 +85,15 @@ public class Main {
 					// finalChiken집 위치들중 가장 가까운 곳 저장
 					int tempRMin = 10000;// r개 위치중 가장 가까운 위치
 					for (int k = 0; k < r; k++) {
-						int x = chicken.get(finalChiken[k])[0];
-						int y = chicken.get(finalChiken[k])[1];
+						int x = chicken.get(finalChiken[k])[0]; //치킨집 x 좌표
+						int y = chicken.get(finalChiken[k])[1]; //치킨집 y 좌표
 
-						int distance = Math.abs(i - x) + Math.abs(j - y);
+						int distance = Math.abs(i - x) + Math.abs(j - y); // 거리
 						if (distance < tempRMin) {
 							tempRMin = distance;
 						}
 					}
-					tempcheckMin += tempRMin;
+					tempcheckMin += tempRMin; 
 				}
 			}
 		}
