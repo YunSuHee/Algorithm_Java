@@ -1,0 +1,35 @@
+package SWEA.D3;
+
+import java.util.Scanner;
+
+public class 성공적인공연기획 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int tc = sc.nextInt();
+		sc.nextLine();
+		for (int t = 1; t <= tc; t++) {
+			String line = sc.nextLine();
+			int result = line.charAt(0) - '0';
+			int add = 0;// 더 필요한 사람 수
+			if (line.length() == 1 && result == 0) {
+				add = 1;
+			}
+			for (int i = 1; i < line.length(); i++) {
+				int person = line.charAt(i) - '0';
+				if (person != 0) {
+					if (i > result) {
+						add += i - result;
+						result += i - result;  // add는 값이 누적이니까 result에 add 더하면 안됨
+					}
+
+					result += person;
+
+				}
+			}
+			System.out.println("#" + t + " " + add);
+		}
+
+	}
+
+}
