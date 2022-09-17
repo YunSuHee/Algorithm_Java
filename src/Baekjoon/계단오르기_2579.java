@@ -3,58 +3,33 @@ package Baekjoon;
 import java.util.Scanner;
 
 public class 계단오르기_2579 {
-	static int[] dpCheck;
-	static int[] floorNum;
-	static int answer =0;
-	static int n;
+
 	public static void main(String[] args) {
-		//1.오를수 있는 계단  한칸  or 두칸
-		//2.한칸씩 3번은 안됨
-		
+
 		Scanner sc = new Scanner(System.in);
-		n = sc.nextInt();
-		dpCheck = new int[n];
-		floorNum = new int[n];
-		
-		for(int i=0;i<n;i++) {
-			floorNum[i] = sc.nextInt();
-		}
-		
-		floors(0,1,0,true);
-		
-		System.out.println(answer);
+		int n = sc.nextInt();
+		int[] dp = new int[n + 1];
+		int[] floor = new int[n + 1];
 
-	}
-	
-	static void floors(int now ,int space, int result , boolean check) {//현재 위치, 올라간 계단 수 (1또는 2), 더해진 값
-		dpCheck[now] =floorNum[now]+result;
-		if(now == n-1) {
-			result+= floorNum[now];
-			if(result > answer) {
-				answer = result;
-			}
-			return;
+		for (int i = 1; i <= n; i++) {
+			floor[i] = sc.nextInt();
 		}
-		
-		if(space == 1 && check == false) {
-			//올라갈 계단 2
-			if(now+2 <n && dpCheck[now+2]<result+floorNum[now+2]) { // now+2 가 n보다 큰경우 dpCheck[now+2]하면 인덱스 오류가 나기 때문에 now+2<n을 먼저 적어줘야함				
-					floors(now+2,2,result+floorNum[now]);
-			}
-			return;
-		}else {
-			//올라갈 계단 1 또는 2
-			if(now+1 <n && dpCheck[now+1]<result+floorNum[now+1]) {				
-				floors(now+1,1,result+floorNum[now]);
-			}
-			
-			if(now+2 <n && dpCheck[now+2]<result+floorNum[now+2]) {				
-				floors(now+2,2,result+floorNum[now]);
-			}
 
-			return;
-			
+		// dp의 1,2칸 채우기
+		dp[1] = floor[1];
+
+		if (n >= 2) {// n이 1일 수도 있으니
+			dp[2] = floor[1] + floor[2];
 		}
+
+		// 계단 올라올 수 있는 경우의 수 2가지
+		// 1. 전전칸 밟고 오기 (-2칸)
+		// 2. 전전전칸 밟고, 전칸 밟고 오기(-3칸, -1칸)
+		for (int i = 3; i <= n; i++) {
+			dp[i] = Math.max(dp[i - 3] + floor[i - 1], dp[i - 2]) + floor[i]; // 올라올 수 있는 경우의 수 2가지 중 큰 값 + 현재 값
+		}
+
+		System.out.println(dp[n]);
 
 	}
 
