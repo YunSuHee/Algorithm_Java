@@ -1,3 +1,5 @@
+https://mazassumnida.wtf/api/v2/generate_badge?boj=tngml97
+
 # Algorithm_Java
 
 ### String to int / int to String
