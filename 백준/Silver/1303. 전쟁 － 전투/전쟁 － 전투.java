@@ -13,8 +13,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		m = sc.nextInt();
 		n = sc.nextInt();
+		m = sc.nextInt();
 		sc.nextLine();
 		war = new String[n][m];
 
