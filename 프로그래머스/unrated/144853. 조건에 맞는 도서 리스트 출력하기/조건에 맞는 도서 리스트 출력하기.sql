@@ -1,0 +1,1 @@
+select book_id, date_format(published_date,"%Y-%m-%d") from book where category="인문" and Year(published_date) = 2021 order by published_date;
